@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+[id] {
+  scroll-margin-top: 88px;
+}
+body {
+  background-color: #ebe6dd;
+  color: #1f2a20;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+.text-measure {
+  max-width: 62ch;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+.icon-fill {
+  font-variation-settings: "FILL" 1;
+}
+
+/* Reveal (conteúdo fica visível se o JS falhar) */
+html.reveal-ready .reveal-item {
+  opacity: 0;
+  transform: translateY(38px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.reveal-ready .reveal-item[data-reveal="left"] { transform: translateX(-32px); }
+html.reveal-ready .reveal-item[data-reveal="right"] { transform: translateX(32px); }
+html.reveal-ready .reveal-item[data-reveal="zoom"] { transform: scale(0.94); }
+html.reveal-ready .reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Depois de revelado, o item só anima o hover (translate/sombra) */
+html.reveal-ready .reveal-item.reveal-done {
+  transition: translate 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+/* Cartões que sobem no hover (usa "translate", que não conflita com o reveal) */
+.lift {
+  transition: translate 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.lift:hover {
+  translate: 0 -5px;
+  box-shadow: 0 22px 44px -22px rgba(31, 42, 32, 0.4);
+}
+
+/* Botões */
+.btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease,
+    color 0.25s ease, border-color 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.4);
+}
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Sublinhado animado nos links do menu */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Entrada do topo */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(169, 181, 138, 0.5); }
+  70% { box-shadow: 0 0 0 16px rgba(169, 181, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(169, 181, 138, 0); }
+}
+.hero-in {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-bg {
+  animation: hero-zoom 16s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.cta-pulse {
+  animation: pulse-ring 2.8s ease-out infinite;
+}
+
+/* Estrelas entram uma a uma quando o bloco aparece */
+html.reveal-ready .reveal-item .star-pop {
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+html.reveal-ready .reveal-item:not(.is-revealed) .star-pop {
+  opacity: 0;
+  transform: scale(0.3) rotate(-30deg);
+}
+
+/* Resposta do FAQ abre suave */
+details[open] > div {
+  animation: fade-down 0.35s ease both;
+}
+
+/* Foco visível para teclado */
+:focus-visible {
+  outline: 2px solid #c66728;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in, .hero-bg, .cta-pulse, details[open] > div { animation: none !important; }
+  .btn, .lift, .link-underline::after { transition: none !important; }
+  .btn:hover, .lift:hover { transform: none; translate: none; }
+  html.reveal-ready .reveal-item .star-pop {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
