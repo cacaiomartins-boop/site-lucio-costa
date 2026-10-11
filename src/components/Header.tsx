@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { clinic } from "../data/clinic";
-import { Icon, scrollToId } from "./ui";
+import { clinic, whatsappUrl } from "../data/clinic";
+import { Icon } from "./ui";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,13 +53,14 @@ export default function Header() {
           </nav>
 
           <div className="hidden sm:flex items-center space-x-4">
-            <button
-              type="button"
-              onClick={() => scrollToId("atendimento")}
-              className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white"
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white inline-flex items-center"
             >
               Agendar Consulta
-            </button>
+            </a>
           </div>
 
           <button
@@ -105,16 +106,15 @@ export default function Header() {
               ))}
             </nav>
           </div>
-          <button
-            type="button"
-            onClick={() => {
-              setOpen(false);
-              scrollToId("atendimento");
-            }}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
             className="w-full min-h-[52px] rounded-[20px] bg-forest text-paper font-medium text-[15px] flex items-center justify-center"
           >
             Agendar Consulta
-          </button>
+          </a>
         </div>
       </div>
     </>

@@ -18,26 +18,47 @@ export const clinic = {
   role: "Psicólogo Clínico & Psicanalista",
   copyYear: 2025,
 
-  // WhatsApp: só números, com 55 + DDD. TROCAR pelo número real do Lúcio.
-  whatsapp: "5561999999999",
+  // WhatsApp: só números, com 55 + DDD. Número do Lúcio: (61) 99113-1309.
+  whatsapp: "5561991131309",
   whatsappMessage: "Olá, Lúcio! Vim pelo seu site e gostaria de agendar uma consulta.",
 
   address,
   mapsLink: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
   mapsEmbed: `https://maps.google.com/maps?q=${mapsQuery}&z=16&output=embed`,
 
-  rating: { score: "5.0", count: 41, platform: "Doctoralia" },
+  // Nota: sempre mostrar como "5,0 de 5,0" para ficar claro que é a pontuação máxima.
+  // (Redação a confirmar com o Lúcio.)
+  rating: { score: "5,0", max: "5,0", count: 41, platform: "Doctoralia" },
+
+  // Perfil do Lúcio no Doctoralia (link que o Caio enviou).
+    doctoralia: {
+    url: "https://www.doctoralia.com.br/lucio-costa/psicologo-psicanalista/sao-paulo#address-id=851212&is-online-only=true&filters%5Bspecializations%5D%5B%5D=75&filters%5Bonline_only%5D%5B%5D=true",
+    cta: "Confira mais depoimentos",
+  },
+
+  // Vídeo de apresentação — PENDENTE. Cole o link (YouTube/Vimeo) ou o arquivo .mp4 em "url".
+  // Vazio = a seção de vídeo não aparece.
+  video: { url: "", poster: "", title: "Vídeo de apresentação do Lúcio Costa" },
 
   // Imagens: coloque os arquivos em public/img/ e use "/img/arquivo.jpg".
-  // (Por enquanto são os links provisórios do layout original.)
+  // (As duas fotos do Lúcio ainda são os links provisórios do layout original.)
   images: {
-    hero: "/img/consultorio.webp",
-    portrait:
+    // Topo do site (foto do Lúcio) — foto de retrato
+    heroPortrait:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC2lSxrUUHcBz9jD82h7wrvr_bspnzrh3z4tqSYyztpgg7TphxJAIcGE-XMRuscL5X4lwa0VFuv90JDfWEN9jbNzgsUO5luFo4TGqWC0pz3m-GIrKqkfrvC5gn8xSFfMQX83m5KMKPSQMJhvOOjdOVu3RHpOPi_3b_940t4ZgnAAF8Hv1JWMNI8z_F-j4UlPnlN3NeqBE52fzR1Li7MlAiAk8z1KnxxUGulkD-YQc3z9atwgfpYVEL6",
-    portraitAlt: "Retrato do psicólogo e psicanalista Lúcio Costa em plano vertical",
-    atendimento:
+    heroPortraitAlt: "Lúcio Costa, psicólogo e psicanalista",
+    // Seção 02 (Sobre) — outra foto do Lúcio, para não repetir a do topo
+    sobrePortrait:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCtlHGU_4ZTNEKfpUFBNr2kesjLcO3ZC-jPBqiBuOaCZ5xou0bQ5Ih7AS9B8c6u1rxfnbJBzyjgf8afA8HMoA4Wgj4CxZ1QG8l6CmxMQWI1VMfVhK15HuDLLGxDjQBd2tauer6a1L8z0Ze9yAn0-kHB3yxWLi17NwYNHdn5U5ye3z-F0xeXcL9kPQxLrNkEhM58EXEcqKxmwAkTzEfNdQpt1k4RocqMeeobqz6z244bfcofy9lHQaZZ",
-    atendimentoAlt: "Lúcio Costa em atendimento e ambiente profissional",
+    sobrePortraitAlt: "Lúcio Costa, psicólogo e psicanalista",
+
+    // FOTOS DO CONSULTÓRIO (pendente: o Lúcio vai enviar fotos reais).
+    // - heroBackground: imagem de fundo do topo. Vazio = fundo verde liso.
+    //   A foto provisória antiga (parece cama de hospital) está em "/img/consultorio.webp".
+    // - abordagem: foto ao lado do texto da seção 03. Vazio = mostra a frase em destaque.
+    heroBackground: "",
+    abordagem: "",
+    abordagemAlt: "Consultório do Lúcio Costa",
   },
 
   nav: [
@@ -57,36 +78,17 @@ export const clinic = {
   ],
 
   hero: {
-    badge: "Acolhimento · Presencial & Online",
-    titleBefore: "Psicoterapia para ",
-    titleItalic: "compreender",
-    titleAfter: " e transformar padrões emocionais",
-    text: "Um espaço de escuta clínica aprofundada para adultos e casais, integrando rigor teórico e sensibilidade humana há mais de 17 anos.",
+    srTitle: "Lúcio Costa — Psicólogo e psicanalista em Brasília e online",
+    badge: "Atendimento presencial e online",
+    text: "Um espaço de escuta clínica aprofundada para adultos e casais, integrando o rigor teórico e a sensibilidade humana.",
+    credit: "Psicólogo e psicanalista",
     cta1: "Marcar primeira sessão",
     cta2: "Conhecer a abordagem",
-    card: [
-      {
-        icon: "location_on",
-        title: "Consultório Asa Norte, Brasília/DF ↗",
-        text: "Ed. Liberty Mall, SCN Q. 2 Bloco B, Sala 711",
-        link: true,
-      },
-      {
-        icon: "videocam",
-        title: "Teleconsulta & Atendimento Online",
-        text: "Sessões por vídeo para todo o Brasil e exterior",
-      },
-      {
-        icon: "verified_user",
-        title: "Registro Profissional Ativo",
-        text: "CRP 01/20083 · Conselho Regional de Psicologia",
-      },
-    ],
   },
 
   trust: [
     { icon: "badge", title: "CRP 01/20083", text: "Registro profissional ativo no CRP-DF" },
-    { icon: "reviews", title: "Nota 5.0 no Doctoralia", text: "41 opiniões de pacientes verificadas" },
+    { icon: "reviews", title: "Nota 5,0 de 5,0 no Doctoralia", text: "Pontuação máxima · 41 opiniões verificadas" },
     { icon: "pin_drop", title: "Brasília — Asa Norte", text: "Consultório no Ed. Liberty Mall" },
     { icon: "devices", title: "Atendimento Online", text: "Plataforma segura e sigilo garantido" },
   ],
@@ -96,8 +98,6 @@ export const clinic = {
     titleBefore: "Quando algo se repete e você ",
     titleItalic: "não entende",
     titleAfter: " por quê",
-    text: "O sofrimento psíquico raramente se apresenta de forma isolada. Ele costuma se manifestar em impasses que retornam sob novas roupagens — na vida afetiva, no corpo ou nas escolhas profissionais.",
-    quote: "A repetição é frequentemente a forma silenciosa que o inconsciente encontra para pedir elaboração.",
     items: [
       {
         title: "Ansiedade e angústia persistente",
@@ -147,7 +147,7 @@ export const clinic = {
       "Sociedade de Psicanálise de Brasília · SPB",
       "Docência & Tutoria · Fiocruz-DF",
     ],
-    cta: "Agendar uma conversa",
+    cta: "Agendar uma consulta",
   },
 
   abordagem: {
@@ -175,6 +175,11 @@ export const clinic = {
         text: "Desenvolvemos a capacidade de tomar decisões alinhadas consigo mesmo e bancar as transformações necessárias com estabilidade.",
       },
     ],
+    // SEÇÃO 03 — PENDENTE: o Lúcio vai enviar novo título e texto para substituir os dois
+    // cartões abaixo ("O que costuma mudar" / "O que este trabalho não é").
+    // Para ativar, troque `null` por:
+    //   { kicker: "", title: "novo título", paragraphs: ["texto 1", "texto 2"] }
+    novoBloco: null as { kicker?: string; title: string; paragraphs: string[] } | null,
     change: {
       kicker: "Transformação",
       title: "O que costuma mudar",
@@ -335,7 +340,7 @@ export const clinic = {
       },
       {
         q: "Como é resguardado o sigilo profissional?",
-        a: "O sigilo é absoluto e protegido pelo Código de Ética Profissional do Psicólogo (CFP). Nada do que é tratado em sessão é compartilhado com familiares, empresas ou terceiros. Nas consultas online, utilizamos canais com criptografia.",
+        a: "O sigilo é absoluto e protegido pelo Código de Ética Profissional do Psicólogo (CEP-CFP). Nada do que é tratado em sessão é compartilhado com familiares, empresas ou terceiros. Nas consultas online, utilizamos canais com criptografia.",
       },
       {
         q: "O atendimento online tem a mesma eficácia que o presencial?",

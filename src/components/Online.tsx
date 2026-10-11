@@ -1,5 +1,5 @@
-import { clinic } from "../data/clinic";
-import { Icon, scrollToId } from "./ui";
+import { clinic, whatsappUrl } from "../data/clinic";
+import { Icon } from "./ui";
 
 export default function Online() {
   const d = clinic.online;
@@ -15,13 +15,14 @@ export default function Online() {
             </h2>
             <p className="text-measure text-[17px] leading-[1.7] text-paper/85">{d.text}</p>
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={() => scrollToId("atendimento")}
-                className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white"
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white inline-flex items-center"
               >
                 {d.cta}
-              </button>
+              </a>
             </div>
           </div>
 

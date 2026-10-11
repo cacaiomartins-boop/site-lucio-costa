@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
 import ParaQuemE from "./components/ParaQuemE";
 import Sobre from "./components/Sobre";
+import Video from "./components/Video";
 import Abordagem from "./components/Abordagem";
 import Passos from "./components/Passos";
 import Atendimento from "./components/Atendimento";
@@ -80,6 +81,7 @@ export default function App() {
         <TrustBar />
         <ParaQuemE />
         <Sobre />
+        <Video />
         <Abordagem />
         <Passos />
         <Atendimento />

@@ -1,5 +1,4 @@
-import { clinic } from "../data/clinic";
-import { scrollToId } from "./ui";
+import { clinic, whatsappUrl } from "../data/clinic";
 
 export default function Sobre() {
   const d = clinic.sobre;
@@ -12,12 +11,12 @@ export default function Sobre() {
               <div className="absolute top-0 left-0 w-full h-full rounded-[20px] bg-sage -z-0" />
               <div className="relative z-10 group rounded-[20px] overflow-hidden aspect-[4/5] bg-paper shadow-md">
                 <img
-                  src={clinic.images.portrait}
-                  alt={clinic.images.portraitAlt}
+                  src={clinic.images.sobrePortrait}
+                  alt={clinic.images.sobrePortraitAlt}
                   loading="lazy"
                   decoding="async"
-                  width={400}
-                  height={400}
+                  width={512}
+                  height={512}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
@@ -56,13 +55,14 @@ export default function Sobre() {
             </div>
 
             <div className="pt-4">
-              <button
-                type="button"
-                onClick={() => scrollToId("atendimento")}
-                className="btn min-h-[52px] px-7 rounded-[20px] bg-forest text-paper font-medium text-[15px] hover:bg-forest/90"
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn min-h-[52px] px-7 rounded-[20px] bg-forest text-paper font-medium text-[15px] hover:bg-forest/90 inline-flex items-center"
               >
                 {d.cta}
-              </button>
+              </a>
             </div>
           </div>
         </div>

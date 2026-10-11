@@ -3,6 +3,9 @@ import { Icon, Stars } from "./ui";
 
 export default function Depoimentos() {
   const d = clinic.depoimentos;
+  const url = clinic.doctoralia.url;
+  // Sem URL, o link só aparece na prévia local (não vai para o site publicado)
+  const showLink = Boolean(url) || import.meta.env.DEV;
   return (
     <section id="depoimentos" className="py-12 md:py-[72px] bg-sand">
       <div className="max-w-editorial mx-auto px-6 md:px-12">
@@ -17,9 +20,27 @@ export default function Depoimentos() {
               <div className="flex items-center gap-1.5 text-terracotta mb-2">
                 <Stars className="text-[24px]" />
               </div>
-              <span className="font-fraunces text-6xl text-terracotta font-normal block">{clinic.rating.score}</span>
+              <p className="font-fraunces text-terracotta font-normal flex items-baseline gap-2">
+                <span className="text-6xl">{clinic.rating.score}</span>
+                <span className="text-2xl">de {clinic.rating.max}</span>
+              </p>
               <p className="text-[15px] text-forest font-medium mt-1">{d.summaryLabel}</p>
               <p className="text-[13px] text-moss mt-1">{d.summaryNote}</p>
+              {showLink && (
+                <a
+                  href={url || "#depoimentos"}
+                  {...(url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-forest underline decoration-sand underline-offset-4 hover:text-terracotta transition-colors"
+                >
+                  <span>{clinic.doctoralia.cta}</span>
+                  <span>↗</span>
+                </a>
+              )}
+              {showLink && !url && (
+                <p className="text-[12px] text-rust mt-1">
+                  Link do Doctoralia pendente — este aviso e o link só aparecem na prévia local.
+                </p>
+              )}
             </div>
           </div>
 
