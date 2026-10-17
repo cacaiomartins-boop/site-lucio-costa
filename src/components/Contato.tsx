@@ -3,7 +3,6 @@ import { Icon } from "./ui";
 
 export default function Contato() {
   const d = clinic.contato;
-  const a = clinic.address;
   return (
     <section id="contato" className="py-12 md:py-[72px] bg-forest text-paper">
       <div className="max-w-editorial mx-auto px-6 md:px-12">
@@ -28,16 +27,19 @@ export default function Contato() {
             </a>
 
             <div className="space-y-6 pt-4 border-t border-moss/40 text-[15px]">
-              <div className="space-y-1">
+              <div className="space-y-4">
                 <p className="flex items-center gap-2 font-medium text-sage text-[13px] tracking-wider uppercase">
                   <Icon name="location_on" className="text-[18px]" />
-                  Consultório presencial
+                  Consultórios presenciais
                 </p>
-                <p className="font-fraunces text-xl text-paper">{a.building}</p>
-                <p className="text-paper/80">{a.street}</p>
-                <p className="text-paper/70 text-sm">
-                  {a.city}, CEP {a.cep}
-                </p>
+                {clinic.offices.map((o) => (
+                  <div key={o.city} className="space-y-0.5">
+                    <p className="text-paper/70 text-sm">{o.city}</p>
+                    <p className="font-fraunces text-xl text-paper">{o.place}</p>
+                    <p className="text-paper/80">{o.detail}</p>
+                    {o.extra && <p className="text-paper/70 text-sm">{o.extra}</p>}
+                  </div>
+                ))}
               </div>
               <div className="space-y-1">
                 <p className="flex items-center gap-2 font-medium text-sage text-[13px] tracking-wider uppercase">

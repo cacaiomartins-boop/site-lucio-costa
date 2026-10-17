@@ -1,4 +1,4 @@
-import { clinic, whatsappUrl } from "../data/clinic";
+import { clinic } from "../data/clinic";
 import { Icon } from "./ui";
 
 export default function Online() {
@@ -14,16 +14,6 @@ export default function Online() {
               <span className="italic text-sage font-light">{d.titleItalic}</span>
             </h2>
             <p className="text-measure text-[17px] leading-[1.7] text-paper/85">{d.text}</p>
-            <div className="pt-2">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white inline-flex items-center"
-              >
-                {d.cta}
-              </a>
-            </div>
           </div>
 
           <div data-reveal="right" className="lg:col-span-5 reveal-item">

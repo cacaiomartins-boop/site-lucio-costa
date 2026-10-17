@@ -11,7 +11,6 @@ export default function Passos() {
             {d.titleBefore}
             <span className="italic text-terracotta-light">{d.titleItalic}</span>
           </h2>
-          <p className="text-measure text-[17px] text-paper/80 leading-[1.7]">{d.text}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -1,9 +1,9 @@
-import { clinic, whatsappUrl } from "../data/clinic";
+import { clinic } from "../data/clinic";
 
 export default function Faq() {
   const d = clinic.faq;
   return (
-    <section id="duvidas" className="py-12 md:py-[72px] bg-linen">
+    <section id="duvidas" className="py-12 md:py-[72px] bg-paper">
       <div className="max-w-editorial mx-auto px-6 md:px-12 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal-item">
           <div className="space-y-4 max-w-2xl">
@@ -12,16 +12,7 @@ export default function Faq() {
               {d.titleBefore}
               <span className="italic text-rust">{d.titleItalic}</span>
             </h2>
-            <p className="text-measure text-[16px] leading-[1.7] text-moss">{d.text}</p>
           </div>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center min-h-[52px] px-7 rounded-[20px] border border-forest text-forest font-medium text-[15px] hover:bg-forest hover:text-paper btn self-start md:self-auto"
-          >
-            {d.cta}
-          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
@@ -31,7 +22,7 @@ export default function Faq() {
                 <details
                   key={f.q}
                   open={c === 0 && i === 0}
-                  className="group p-5 rounded-[20px] bg-paper border border-sand transition-all reveal-item"
+                  className="group p-5 rounded-[20px] bg-linen border border-sand transition-all reveal-item"
                 >
                   <summary className="flex items-center justify-between cursor-pointer list-none">
                     <span className="font-fraunces text-lg text-forest font-normal pr-4">{f.q}</span>

@@ -8,12 +8,11 @@ import Video from "./components/Video";
 import Abordagem from "./components/Abordagem";
 import Passos from "./components/Passos";
 import Atendimento from "./components/Atendimento";
-import Depoimentos from "./components/Depoimentos";
+import Valores from "./components/Valores";
 import Online from "./components/Online";
 import Faq from "./components/Faq";
 import Contato from "./components/Contato";
 import Footer from "./components/Footer";
-import FloatingCta from "./components/FloatingCta";
 import { useScrollEffects } from "./hooks/useScrollEffects";
 
 export default function App() {
@@ -85,13 +84,12 @@ export default function App() {
         <Abordagem />
         <Passos />
         <Atendimento />
-        <Depoimentos />
         <Online />
         <Faq />
+        <Valores />
         <Contato />
         <Footer />
       </main>
-      <FloatingCta />
     </>
   );
 }

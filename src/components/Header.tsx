@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { clinic, whatsappUrl } from "../data/clinic";
+import { clinic } from "../data/clinic";
 import { Icon } from "./ui";
 
 export default function Header() {
@@ -27,16 +27,16 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-linen/95 backdrop-blur-md border-b border-sand shadow-sm py-4" : "py-5"
+          scrolled ? "bg-forest/95 backdrop-blur-md border-b border-moss/40 shadow-sm py-4" : "bg-forest border-b border-moss/40 py-5"
         }`}
       >
         <div className="max-w-editorial mx-auto px-6 md:px-12 flex items-center justify-between">
           <a href="#topo" className="group flex flex-col justify-center">
-            <span className={`font-fraunces text-2xl font-normal tracking-tight transition-colors ${scrolled ? "text-forest" : "text-paper"}`}>
+            <span className="font-fraunces text-2xl font-normal tracking-tight text-paper">
               {clinic.name}
             </span>
-            <span className={`text-[11px] font-medium tracking-[0.18em] uppercase transition-colors ${scrolled ? "text-moss" : "text-sage"}`}>
-              Psicanálise · {clinic.crp}
+            <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-sage">
+              Psicólogo · {clinic.crp}
             </span>
           </a>
 
@@ -45,29 +45,18 @@ export default function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`link-underline transition-colors ${scrolled ? "text-ink/80 hover:text-forest" : "text-paper/85 hover:text-paper"}`}
+                className="link-underline transition-colors text-paper/85 hover:text-paper"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden sm:flex items-center space-x-4">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white inline-flex items-center"
-            >
-              Agendar Consulta
-            </a>
-          </div>
-
           <button
             type="button"
             aria-label="Abrir Menu"
             onClick={() => setOpen(true)}
-            className={`lg:hidden p-2 focus:outline-none ${scrolled ? "text-forest" : "text-paper"}`}
+            className="lg:hidden p-2 focus:outline-none text-paper"
           >
             <Icon name="menu" className="text-[28px]" />
           </button>
@@ -106,15 +95,6 @@ export default function Header() {
               ))}
             </nav>
           </div>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="w-full min-h-[52px] rounded-[20px] bg-forest text-paper font-medium text-[15px] flex items-center justify-center"
-          >
-            Agendar Consulta
-          </a>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="topo"
-      className="relative w-full min-h-[80vh] bg-forest text-paper flex items-center overflow-hidden pt-28 pb-14 md:pb-20"
+      className="relative w-full min-h-[80vh] lg:min-h-[640px] bg-paper text-ink flex items-center overflow-hidden pt-28 pb-14 md:pb-20 lg:py-28"
     >
       {bg ? (
         <>
@@ -24,28 +24,69 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-forest/95 via-forest/80 to-forest/55" />
         </>
       ) : (
-        <div className="absolute -right-24 -top-24 w-[620px] h-[620px] rounded-full bg-moss/25 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-paper to-linen" />
       )}
-      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#A9B58A_1px,transparent_1px)] [background-size:28px_28px]" />
 
-      <div className="relative z-10 max-w-editorial w-full mx-auto px-6 md:px-12">
+      {/* Desktop: foto ocupa quase metade da seção, à direita, abaixo do cabeçalho, separada por uma linha simples */}
+      <figure
+        style={{ animationDelay: "180ms" }}
+        className="hero-in hidden lg:block absolute top-[84px] right-0 bottom-0 w-[46%] border-l border-sand bg-sand"
+      >
+        <img
+          src={clinic.images.heroPortrait}
+          alt={clinic.images.heroPortraitAlt}
+          width={400}
+          height={500}
+          decoding="async"
+          className="w-full h-full object-cover object-top"
+        />
+      </figure>
+
+      <div className="relative z-10 w-full px-6 md:px-12 lg:w-[54%] lg:pr-12 lg:pl-[max(3rem,calc((100vw-1240px)/2+3rem))]">
         <h1 className="sr-only">{h.srTitle}</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col space-y-7">
+        <div className="flex flex-col gap-10 lg:gap-0">
+          {/* Mobile e tablet: foto acima do texto */}
+          <figure
+            style={{ animationDelay: "180ms" }}
+            className="hero-in lg:hidden w-full max-w-[320px] sm:max-w-sm mx-auto"
+          >
+            <div className="rounded-[20px] overflow-hidden aspect-[4/5] bg-sand shadow-xl ring-1 ring-sand">
+              <img
+                src={clinic.images.heroPortrait}
+                alt={clinic.images.heroPortraitAlt}
+                width={400}
+                height={400}
+                decoding="async"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <figcaption className="mt-3 text-[12px] font-medium uppercase tracking-[0.18em] text-moss text-center">
+              {h.credit}
+            </figcaption>
+          </figure>
+
+          <div className="flex flex-col space-y-7">
             <span
               style={{ animationDelay: "100ms" }}
-              className="hero-in inline-flex items-center gap-2 self-start px-4 py-2 rounded-full bg-forest/90 border border-moss/40 text-sage text-[12px] font-medium tracking-[0.18em] uppercase"
+              className="hero-in inline-flex items-center gap-2 self-start px-4 py-2 rounded-full bg-paper border border-sand text-moss text-[12px] font-medium tracking-[0.18em] uppercase"
             >
-              <span className="w-2 h-2 rounded-full bg-terracotta-light" />
+              <span className="w-2 h-2 rounded-full bg-terracotta" />
               {h.badge}
             </span>
 
             <p
               style={{ animationDelay: "240ms" }}
-              className="hero-in font-fraunces font-light text-[28px] md:text-[40px] leading-[1.25] tracking-tight text-paper max-w-[26ch] md:max-w-[28ch]"
+              className="hero-in font-fraunces font-light text-[28px] md:text-[40px] leading-[1.25] tracking-tight text-forest max-w-[24ch] md:max-w-[30ch]"
             >
               {h.text}
+            </p>
+
+            <p
+              style={{ animationDelay: "320ms" }}
+              className="hero-in text-[16px] md:text-[18px] leading-[1.6] text-ink/75 max-w-[40ch]"
+            >
+              {h.support}
             </p>
 
             <div
@@ -56,38 +97,19 @@ export default function Hero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn min-h-[52px] px-7 rounded-[20px] bg-paper text-forest font-medium text-[15px] hover:bg-white flex items-center justify-center"
+                className="btn min-h-[52px] px-7 rounded-[20px] bg-forest text-paper font-medium text-[15px] hover:bg-forest/90 flex items-center justify-center"
               >
                 {h.cta1}
               </a>
               <a
                 href="#como-trabalho"
-                className="group min-h-[52px] px-7 rounded-[20px] inline-flex items-center justify-center gap-2 text-paper hover:text-sage font-normal text-[15px] transition-colors"
+                className="group min-h-[52px] px-7 rounded-[20px] inline-flex items-center justify-center gap-2 text-forest hover:text-terracotta font-normal text-[15px] transition-colors"
               >
                 <span>{h.cta2}</span>
                 <span className="text-lg transition-transform duration-300 group-hover:translate-y-1">↓</span>
               </a>
             </div>
           </div>
-
-          <figure
-            style={{ animationDelay: "180ms" }}
-            className="hero-in order-1 lg:order-2 lg:col-span-5 w-full max-w-[320px] sm:max-w-sm lg:max-w-[440px] mx-auto lg:ml-auto lg:mr-0"
-          >
-            <div className="rounded-[20px] overflow-hidden aspect-[4/5] bg-moss/30 shadow-2xl ring-1 ring-sage/25">
-              <img
-                src={clinic.images.heroPortrait}
-                alt={clinic.images.heroPortraitAlt}
-                width={400}
-                height={400}
-                decoding="async"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <figcaption className="mt-3 text-[12px] font-medium uppercase tracking-[0.18em] text-sage text-center lg:text-left">
-              {h.credit}
-            </figcaption>
-          </figure>
         </div>
       </div>
     </section>

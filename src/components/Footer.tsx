@@ -1,7 +1,6 @@
 import { clinic } from "../data/clinic";
 
 export default function Footer() {
-  const a = clinic.address;
   const f = clinic.footer;
   return (
     <footer id="site-footer" className="bg-forest text-paper/80 pt-12 pb-8 border-t border-moss/30">
@@ -14,20 +13,19 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2 text-[14px]">
-            <p className="font-medium text-paper">Consultório Presencial</p>
-            <p className="text-paper/75">
-              {a.building}, {a.street}
-            </p>
-            <p className="text-paper/75">
-              {a.city.replace("—", "-")}, CEP {a.cep}
-            </p>
+            <p className="font-medium text-paper">Consultórios Presenciais</p>
+            {clinic.offices.map((o) => (
+              <p key={o.city} className="text-paper/75">
+                {o.city}: {o.place}, {o.detail}
+              </p>
+            ))}
             <a
               href={clinic.mapsLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sage hover:underline text-[13px] inline-block pt-1"
             >
-              Ver no mapa ↗
+              Ver Brasília no mapa ↗
             </a>
           </div>
 
