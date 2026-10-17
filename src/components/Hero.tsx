@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="topo"
-      className="relative w-full min-h-[80vh] lg:min-h-[640px] bg-paper text-ink flex items-center overflow-hidden pt-28 pb-14 md:pb-20 lg:py-28"
+      className="relative w-full min-h-[80vh] lg:min-h-[640px] bg-paper text-ink flex items-center overflow-hidden pt-28 pb-14 md:pb-20 lg:pt-[196px] lg:pb-28"
     >
       {bg ? (
         <>
