@@ -6,7 +6,7 @@ export default function Contato() {
   return (
     <section id="contato" className="py-12 md:py-[72px] bg-forest text-paper">
       <div className="max-w-editorial mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           <div data-reveal="left" className="lg:col-span-5 space-y-8 reveal-item">
             <div className="space-y-4">
               <span className="text-[12px] font-medium tracking-[0.18em] uppercase text-sage block">{d.kicker}</span>
@@ -27,20 +27,6 @@ export default function Contato() {
             </a>
 
             <div className="space-y-6 pt-4 border-t border-moss/40 text-[15px]">
-              <div className="space-y-4">
-                <p className="flex items-center gap-2 font-medium text-sage text-[13px] tracking-wider uppercase">
-                  <Icon name="location_on" className="text-[18px]" />
-                  Consultórios presenciais
-                </p>
-                {clinic.offices.map((o) => (
-                  <div key={o.city} className="space-y-0.5">
-                    <p className="text-paper/70 text-sm">{o.city}</p>
-                    <p className="font-fraunces text-xl text-paper">{o.place}</p>
-                    <p className="text-paper/80">{o.detail}</p>
-                    {o.extra && <p className="text-paper/70 text-sm">{o.extra}</p>}
-                  </div>
-                ))}
-              </div>
               <div className="space-y-1">
                 <p className="flex items-center gap-2 font-medium text-sage text-[13px] tracking-wider uppercase">
                   <Icon name="videocam" className="text-[18px]" />
@@ -52,33 +38,43 @@ export default function Contato() {
           </div>
 
           <div data-reveal="right" className="lg:col-span-7 reveal-item">
-            <div className="bg-paper text-ink rounded-[20px] overflow-hidden shadow-2xl">
-              <div className="p-7 border-b border-sand flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div>
-                  <span className="text-[12px] font-medium tracking-[0.18em] uppercase text-rust block">
-                    Localização do consultório
-                  </span>
-                  <p className="font-fraunces text-xl text-forest font-normal mt-0.5">{d.mapTitle}</p>
-                  <p className="text-[13px] text-moss">{d.mapSub}</p>
-                </div>
-                <a
-                  href={clinic.mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[14px] font-medium text-forest hover:text-terracotta underline decoration-sand transition-colors"
-                >
-                  <span>{d.mapLink}</span>
-                  <span>↗</span>
-                </a>
+            <div className="h-full flex flex-col bg-paper text-ink rounded-[20px] overflow-hidden shadow-2xl">
+              <div className="px-6 md:px-7 pt-6 pb-4 border-b border-sand">
+                <span className="text-[12px] font-medium tracking-[0.18em] uppercase text-rust block">
+                  Localização dos consultórios
+                </span>
               </div>
-              <div className="w-full h-[320px] md:h-[400px] bg-sand/20">
-                <iframe
-                  src={clinic.mapsEmbed}
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  title="Mapa do consultório em Brasília"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-sand">
+                {clinic.offices.map((o) => (
+                  <div key={o.city} className="flex flex-col">
+                    <div className="p-5 md:p-6 space-y-1">
+                      <p className="font-fraunces text-2xl text-forest font-normal">{o.city}</p>
+                      <p className="text-[14px] text-ink">{o.place}</p>
+                      <p className="text-[13px] text-moss leading-snug">
+                        {o.detail}
+                        {o.extra && ` · ${o.extra}`}
+                      </p>
+                      <a
+                        href={o.mapsLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 pt-1 text-[14px] font-medium text-forest hover:text-terracotta underline decoration-sand transition-colors"
+                      >
+                        <span>{d.mapLink}</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
+                    <div className="flex-1 min-h-[260px] bg-sand/20">
+                      <iframe
+                        src={o.mapsEmbed}
+                        className="w-full h-full min-h-[260px] border-0 block"
+                        loading="lazy"
+                        title={`Mapa do consultório em ${o.city}`}
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

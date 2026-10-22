@@ -16,17 +16,22 @@ export default function Footer() {
             <p className="font-medium text-paper">Consultórios Presenciais</p>
             {clinic.offices.map((o) => (
               <p key={o.city} className="text-paper/75">
-                {o.city}: {o.place}, {o.detail}
+                <span className="font-medium text-paper">{o.city}:</span> {o.place}, {o.detail}
               </p>
             ))}
-            <a
-              href={clinic.mapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sage hover:underline text-[13px] inline-block pt-1"
-            >
-              Ver Brasília no mapa ↗
-            </a>
+            <div className="flex flex-wrap gap-x-4 pt-1">
+              {clinic.offices.map((o) => (
+                <a
+                  key={o.city}
+                  href={o.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sage hover:underline text-[13px]"
+                >
+                  Ver {o.city.split(" ")[0]} no mapa ↗
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="space-y-2 text-[14px]">

@@ -12,6 +12,8 @@ const address = {
 const mapsQuery =
   "Ed.+Liberty+Mall,+SCN,+Quadra+02,+Bloco+B,+sala+711+-+Asa+Norte,+Bras%C3%ADlia+-+DF,+70712-020";
 
+const mapsQuerySorocaba = "Ed.+Campolim+Tower,+Campolim,+Sorocaba+-+SP";
+
 export const clinic = {
   name: "Lucio Costa",
   crp: "CRP 01/20083",
@@ -20,13 +22,27 @@ export const clinic = {
 
   // WhatsApp: só números, com 55 + DDD. Número do Lucio: (61) 99113-1309.
   whatsapp: "5561991131309",
-  whatsappMessage: "Olá, Lucio! Vim pelo seu site e gostaria de agendar um primeiro encontro.",
+  whatsappMessage: "Olá, Lucio! Vim pelo seu site e gostaria de agendar uma primeira sessão.",
 
   address,
   // Consultórios (Brasília e Sorocaba). Endereço completo de Sorocaba ainda não informado.
   offices: [
-    { city: "Brasília (DF)", place: "Ed. Liberty Mall", detail: `${address.street}`, extra: `CEP ${address.cep}` },
-    { city: "Sorocaba (SP)", place: "Ed. Campolim Tower", detail: "Campolim", extra: "" },
+    {
+      city: "Brasília (DF)",
+      place: "Ed. Liberty Mall",
+      detail: `${address.street}`,
+      extra: `CEP ${address.cep}`,
+      mapsLink: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
+      mapsEmbed: `https://maps.google.com/maps?q=${mapsQuery}&z=16&output=embed`,
+    },
+    {
+      city: "Sorocaba (SP)",
+      place: "Ed. Campolim Tower",
+      detail: "Campolim",
+      extra: "",
+      mapsLink: `https://www.google.com/maps/search/?api=1&query=${mapsQuerySorocaba}`,
+      mapsEmbed: `https://maps.google.com/maps?q=${mapsQuerySorocaba}&z=16&output=embed`,
+    },
   ],
   mapsLink: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
   mapsEmbed: `https://maps.google.com/maps?q=${mapsQuery}&z=16&output=embed`,
@@ -36,11 +52,9 @@ export const clinic = {
   video: { url: "", poster: "", title: "Vídeo de apresentação do Lucio Costa" },
 
   // Imagens: coloque os arquivos em public/img/ e use "/img/arquivo.jpg".
-  // (A foto do Lucio ainda é o link provisório do layout original.)
   images: {
     // Topo do site (foto do Lucio) — foto de retrato. É a única foto dele no site.
-    heroPortrait:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC2lSxrUUHcBz9jD82h7wrvr_bspnzrh3z4tqSYyztpgg7TphxJAIcGE-XMRuscL5X4lwa0VFuv90JDfWEN9jbNzgsUO5luFo4TGqWC0pz3m-GIrKqkfrvC5gn8xSFfMQX83m5KMKPSQMJhvOOjdOVu3RHpOPi_3b_940t4ZgnAAF8Hv1JWMNI8z_F-j4UlPnlN3NeqBE52fzR1Li7MlAiAk8z1KnxxUGulkD-YQc3z9atwgfpYVEL6",
+    heroPortrait: "/img/lucio.webp",
     heroPortraitAlt: "Lucio Costa, psicólogo",
 
     // FOTOS DO CONSULTÓRIO (pendente).
@@ -73,7 +87,7 @@ export const clinic = {
     text: "Um lugar para falar do que sente, do que se repete e do que ainda não tem nome.",
     support: "Atendimento de adultos e casais, presencial e online.",
     credit: "Psicólogo",
-    cta1: "Agendar um primeiro encontro",
+    cta1: "Agendar uma primeira sessão",
     cta2: "Como eu trabalho",
   },
 
@@ -127,12 +141,12 @@ export const clinic = {
 
   sobre: {
     kicker: "02 — Sobre",
-    titleBefore: "Uma escuta formada na clínica, orientada pela perspectiva dos ",
-    titleItalic: "direitos humanos",
+    titleBefore: "Uma escuta formada na clínica, orientada pela ",
+    titleItalic: "psicanálise",
     titleAfter: "",
     cardName: "Lucio Costa",
     cardRole: "Psicólogo",
-    cardInfo: "CRP 01/20083 · Mestre em Educação (UFSCar)",
+    cardInfo: "CRP 01/20083",
     paragraphs: [
       "Sou psicólogo há 18 anos e trabalho com base na psicanálise. Atendo adultos e casais em consultório particular, presencialmente em Brasília (DF) e Sorocaba (SP), e online. Minha clínica parte da escuta de cada pessoa em sua singularidade, considerando sua história, seus impasses e a maneira como estabelece relações consigo mesma e com o mundo.",
       "Minha formação em psicanálise se sustenta no que a tradição psicanalítica considera indispensável: análise pessoal, supervisão clínica e estudo teórico permanente. Parte desse percurso foi desenvolvido na Sociedade de Psicanálise de Brasília (SPB). Sou mestre em Educação pela Universidade Federal de São Carlos (UFSCar) e minha experiência com formação e supervisão inclui a tutoria de profissionais de Psicologia na Residência Multiprofissional em Saúde da Família com Ênfase na População do Campo, realizada pela Fundação Oswaldo Cruz (Fiocruz Brasília), e a supervisão clínica no Centro de Orientação Médico e Psicopedagógica do Distrito Federal.",
@@ -173,7 +187,7 @@ export const clinic = {
       },
     ],
     efeitos: {
-      title: "Sobre os efeitos de uma análise",
+      title: "Sobre a análise",
       text: "Cada percurso é singular, e seus efeitos podem aparecer de maneiras diferentes: numa relação que se transforma, numa escolha que passa a ser possível ou num sintoma que perde força.",
     },
     notIs: {
@@ -205,8 +219,8 @@ export const clinic = {
       },
       {
         num: "03",
-        title: "Entrevistas iniciais",
-        text: "Os primeiros encontros servem para falar do que trouxe você até aqui e para avaliarmos juntos se e como seguir.",
+        title: "Entrevista inicial",
+        text: "A primeira sessão serve para falar do que trouxe você até aqui e para avaliarmos juntos se e como seguir.",
       },
       {
         num: "04",
@@ -220,7 +234,7 @@ export const clinic = {
     kicker: "05 — Modalidades",
     title: "Modalidades",
     text: "Atendimento particular, com recibo para solicitação de reembolso ao plano de saúde.",
-    cta: "Agendar um primeiro encontro",
+    cta: "Agendar uma primeira sessão",
     plans: [
       {
         modeIcon: "location_on",
@@ -263,7 +277,7 @@ export const clinic = {
     titleItalic: "frequentes",
     items: [
       {
-        q: "Como são os primeiros encontros?",
+        q: "Como é a primeira sessão?",
         a: "Você fala do que trouxe você até aqui, do jeito que puder. Eu explico como trabalho e, juntos, avaliamos se é o momento de iniciar uma análise e com que frequência.",
       },
       {
@@ -284,7 +298,7 @@ export const clinic = {
       },
       {
         q: "Como é o pagamento?",
-        a: "As condições são combinadas no início do trabalho.",
+        a: "Via transferência bancária ou PIX.",
       },
       {
         q: "Qual a diferença entre psicanálise e outras psicoterapias?",
@@ -302,8 +316,8 @@ export const clinic = {
       { label: "Sessão de casal", price: "R$ 600,00" },
     ],
     paymentTitle: "Como é o pagamento?",
-    paymentText: "As condições são combinadas no início do trabalho.",
-    cta: "Agendar um primeiro encontro",
+    paymentText: "Via transferência bancária ou PIX.",
+    cta: "Agendar uma primeira sessão",
   },
 
   contato: {
@@ -311,10 +325,8 @@ export const clinic = {
     titleBefore: "Comece por uma ",
     titleItalic: "conversa",
     text: "Se algo em você pede para ser dito, este pode ser um bom lugar para começar.",
-    cta: "Agendar um primeiro encontro",
+    cta: "Agendar uma primeira sessão",
     onlineText: "Disponível para pacientes de todo o Brasil e brasileiros residentes no exterior.",
-    mapTitle: "Ed. Liberty Mall, Asa Norte",
-    mapSub: "SCN Quadra 02 Bloco B sala 711 · Brasília/DF",
     mapLink: "Abrir no Google Maps",
   },
 
