@@ -97,13 +97,13 @@ export default function Hero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn min-h-[52px] px-7 rounded-[20px] bg-forest text-paper font-medium text-[15px] hover:bg-forest/90 flex items-center justify-center"
+                className="btn min-h-[52px] px-7 rounded-[20px] bg-forest text-paper font-medium text-[15px] hover:bg-forest/90 flex items-center justify-center whitespace-nowrap"
               >
                 {h.cta1}
               </a>
               <a
                 href="#como-trabalho"
-                className="group min-h-[52px] px-7 rounded-[20px] inline-flex items-center justify-center gap-2 text-forest hover:text-terracotta font-normal text-[15px] transition-colors"
+                className="group min-h-[52px] px-7 rounded-[20px] whitespace-nowrap inline-flex items-center justify-center gap-2 text-forest hover:text-terracotta font-normal text-[15px] transition-colors"
               >
                 <span>{h.cta2}</span>
                 <span className="text-lg transition-transform duration-300 group-hover:translate-y-1">↓</span>

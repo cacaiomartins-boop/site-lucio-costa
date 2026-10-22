@@ -64,9 +64,17 @@ export default function Abordagem() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-          <div className="bg-forest text-paper p-7 md:p-10 rounded-[20px] space-y-4 reveal-item">
+          <div className="bg-forest text-paper p-7 md:p-10 rounded-[20px] space-y-6 reveal-item">
             <h3 className="font-fraunces text-2xl md:text-3xl font-normal">{d.efeitos.title}</h3>
             <p className="text-[16px] leading-[1.7] text-paper/85">{d.efeitos.text}</p>
+            <ul className="space-y-4 text-[16px]">
+              {d.efeitos.items.map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <Icon name="check_circle" className="text-sage text-[20px] mt-0.5" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="bg-linen text-ink p-7 md:p-10 rounded-[20px] space-y-6 border border-sand reveal-item">

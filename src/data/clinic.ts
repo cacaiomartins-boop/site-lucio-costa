@@ -188,7 +188,12 @@ export const clinic = {
     ],
     efeitos: {
       title: "Sobre a análise",
-      text: "Cada percurso é singular, e seus efeitos podem aparecer de maneiras diferentes: numa relação que se transforma, numa escolha que passa a ser possível ou num sintoma que perde força.",
+      text: "Cada percurso é singular, e seus efeitos podem aparecer de maneiras diferentes:",
+      items: [
+        "Numa relação que se transforma.",
+        "Numa escolha que passa a ser possível.",
+        "Num sintoma que perde força.",
+      ],
     },
     notIs: {
       title: "O que este trabalho não é",
