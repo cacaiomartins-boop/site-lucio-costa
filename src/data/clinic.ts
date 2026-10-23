@@ -22,7 +22,7 @@ export const clinic = {
 
   // WhatsApp: só números, com 55 + DDD. Número do Lucio: (61) 99113-1309.
   whatsapp: "5561991131309",
-  whatsappMessage: "Olá, Lucio! Vim pelo seu site e gostaria de agendar uma primeira sessão.",
+  whatsappMessage: "Olá, gostaria de agendar uma consulta!",
 
   address,
   // Consultórios (Brasília e Sorocaba). Endereço completo de Sorocaba ainda não informado.
