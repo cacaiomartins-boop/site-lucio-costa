@@ -34,9 +34,12 @@ export default function Hero() {
       >
         <img
           src={clinic.images.heroPortrait}
+          srcSet={`${clinic.images.heroPortraitSmall} 480w, ${clinic.images.heroPortrait} 900w`}
+          sizes="(min-width: 1024px) 46vw, (min-width: 640px) 384px, 320px"
           alt={clinic.images.heroPortraitAlt}
-          width={400}
-          height={500}
+          width={900}
+          height={900}
+          fetchPriority="high"
           decoding="async"
           className="w-full h-full object-cover object-top"
         />
@@ -54,9 +57,12 @@ export default function Hero() {
             <div className="rounded-[20px] overflow-hidden aspect-[4/5] bg-sand shadow-xl ring-1 ring-sand">
               <img
                 src={clinic.images.heroPortrait}
+                srcSet={`${clinic.images.heroPortraitSmall} 480w, ${clinic.images.heroPortrait} 900w`}
+                sizes="(min-width: 1024px) 46vw, (min-width: 640px) 384px, 320px"
                 alt={clinic.images.heroPortraitAlt}
-                width={400}
-                height={400}
+                width={900}
+                height={900}
+                loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover object-top"
               />

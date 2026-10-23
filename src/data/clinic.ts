@@ -54,7 +54,8 @@ export const clinic = {
   // Imagens: coloque os arquivos em public/img/ e use "/img/arquivo.jpg".
   images: {
     // Topo do site (foto do Lucio) — foto de retrato. É a única foto dele no site.
-    heroPortrait: "/img/lucio.webp",
+    heroPortrait: "/img/lucio-900.webp",
+    heroPortraitSmall: "/img/lucio-480.webp",
     heroPortraitAlt: "Lucio Costa, psicólogo",
 
     // FOTOS DO CONSULTÓRIO (pendente).
